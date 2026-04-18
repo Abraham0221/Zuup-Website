@@ -1,26 +1,135 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #ffffff;
+  --zuup-blue: #4a7eff;
+  --zuup-blue-bright: #5a8dff;
+  --zuup-blue-deep: #1e3a8a;
+  --zuup-blue-glow: rgba(74, 126, 255, 0.6);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-zuup: var(--zuup-blue);
+  --color-zuup-bright: var(--zuup-blue-bright);
+  --color-zuup-deep: var(--zuup-blue-deep);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  background: #000;
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  overflow-x: hidden;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(74, 126, 255, 0.18), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 30%, rgba(74, 126, 255, 0.08), transparent 70%),
+    #000;
+}
+
+::selection {
+  background: var(--zuup-blue);
+  color: #fff;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #000;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e3a8a;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4a7eff;
+}
+
+/* Utility animations */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.text-gradient-blue {
+  background: linear-gradient(135deg, #7aa4ff 0%, #4a7eff 50%, #1e3a8a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* italic letters overhang their box; pad so background-clip doesn't cut the slant */
+  padding-right: 0.12em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.text-shimmer {
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #7aa4ff 25%,
+    #ffffff 50%,
+    #7aa4ff 75%,
+    #ffffff 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 6s linear infinite;
+}
+
+.glass {
+  background: rgba(15, 20, 40, 0.4);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid rgba(74, 126, 255, 0.15);
+}
+
+.glow-blue {
+  box-shadow:
+    0 0 40px rgba(74, 126, 255, 0.35),
+    0 0 80px rgba(74, 126, 255, 0.2),
+    inset 0 0 20px rgba(74, 126, 255, 0.1);
+}
+
+.ring-pulse {
+  animation: pulse-ring 3.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.float-y {
+  animation: float-y 5s ease-in-out infinite;
+}
+
+/* Hide scrollbars on horizontal carousels */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
