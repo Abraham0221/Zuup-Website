@@ -62,7 +62,7 @@ export default function Hero() {
               Download free
               <span
                 aria-hidden
-                className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 group-hover:translate-x-full"
+                className="absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 group-hover:translate-x-full"
               />
             </a>
             <a
@@ -74,7 +74,7 @@ export default function Hero() {
             </a>
           </motion.div>
 
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.6 }}
@@ -97,7 +97,7 @@ export default function Hero() {
               <span className="text-yellow-400">★★★★★</span>
               <span>4.9 rating</span>
             </div>
-          </motion.div>
+          </motion.div> */}
         </div>
 
         {/* Right: phone */}

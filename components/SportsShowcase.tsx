@@ -53,9 +53,9 @@ export default function SportsShowcase() {
               className="group relative aspect-square cursor-pointer overflow-hidden rounded-3xl border border-white/10"
             >
               <div
-                className={`absolute inset-0 bg-gradient-to-br ${sport.color} opacity-70 transition group-hover:opacity-100`}
+                className={`absolute inset-0 bg-linear-to-br ${sport.color} opacity-70 transition group-hover:opacity-100`}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent" />
               <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 p-4">
                 <div className="text-5xl transition group-hover:scale-110">
                   {sport.emoji}

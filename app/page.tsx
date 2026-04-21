@@ -18,8 +18,8 @@ export default function Home() {
       <SportsShowcase />
       <Features />
       <HowItWorks />
-      <Stats />
-      <Testimonials />
+      {/* <Stats /> */}
+      {/* <Testimonials /> */}
       <DownloadCTA />
       <Footer />
     </main>
